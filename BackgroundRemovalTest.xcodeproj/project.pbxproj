@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		9038DF1A24B74B3100649C12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9038DF1824B74B3100649C12 /* Main.storyboard */; };
 		9038DF1C24B74B3300649C12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9038DF1B24B74B3300649C12 /* Assets.xcassets */; };
 		9038DF1F24B74B3300649C12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9038DF1D24B74B3300649C12 /* LaunchScreen.storyboard */; };
+		9038DF2824B7500200649C12 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9038DF2724B7500200649C12 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9038DF2824B7500200649C12 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +85,9 @@
 			dependencies = (
 			);
 			name = BackgroundRemovalTest;
+			packageProductDependencies = (
+				9038DF2724B7500200649C12 /* Alamofire */,
+			);
 			productName = BackgroundRemovalTest;
 			productReference = 9038DF0F24B74B3100649C12 /* BackgroundRemovalTest.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +116,9 @@
 				Base,
 			);
 			mainGroup = 9038DF0624B74B3100649C12;
+			packageReferences = (
+				9038DF2624B7500200649C12 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 9038DF1024B74B3100649C12 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -287,6 +295,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D995T28HR4;
 				INFOPLIST_FILE = BackgroundRemovalTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,6 +314,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D995T28HR4;
 				INFOPLIST_FILE = BackgroundRemovalTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -338,6 +348,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9038DF2624B7500200649C12 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9038DF2724B7500200649C12 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9038DF2624B7500200649C12 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9038DF0724B74B3100649C12 /* Project object */;
 }
