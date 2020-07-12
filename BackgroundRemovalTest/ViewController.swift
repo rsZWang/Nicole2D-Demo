@@ -24,7 +24,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var previewLayer: AVCaptureVideoPreviewLayer?
     @IBOutlet var screen_view: UIView!
     @IBOutlet weak var capture_button: UIButton!
-    @IBOutlet weak var captured_imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,12 +51,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 return
             }
             
-//            self.uploadRemoveBg(fileName: "test.jpg", imageData: imageData) { imageData in
-//                self.captured_imageView.image = UIImage(data: imageData)
-//            }
-            
-            self.captured_imageView.image = UIImage(data: imageData)
-            self.captured_imageView.enableZoom()
+            self.uploadRemoveBg(fileName: "test.jpg", imageData: imageData) { imageData in
+                let imageView = CustomUIImageView(imageData: imageData)
+                let halfRootViewWidth = self.view.frame.size.width/3*2
+                let halfRootViewHeight = self.view.frame.size.height/3*2
+                imageView.frame = CGRect(
+                    x: self.view.center.x - halfRootViewWidth/2,
+                    y: self.view.center.y - halfRootViewHeight/2,
+                    width: halfRootViewWidth,
+                    height: halfRootViewHeight)
+                self.view.addSubview(imageView)
+            }
         }
     }
     
@@ -223,40 +227,4 @@ extension ViewController {
                 }
             }
         }
-}
-
-extension ViewController {
-    @objc func panGesture(sender: UIPanGestureRecognizer) {
-        var relativePosition: CGPoint?
-        if sender.state == UIGestureRecognizer.State.began {
-            let locationInView = sender.location(in: super.view)
-            relativePosition = CGPoint(x: locationInView.x - (sender.view?.center.x ?? 0.0), y: locationInView.y - (sender.view?.center.y ?? 0.0))
-            return
-        }
-        if sender.state == UIGestureRecognizer.State.ended {
-            relativePosition = nil
-            return
-        }
-        let locationInView = sender.location(in: super.view)
-        guard let pos = relativePosition else {
-            return
-        }
-        sender.view?.center = CGPoint(x: locationInView.x - pos.x, y: locationInView.y - pos.y)
-    }
-}
-
-extension UIImageView {
-    func enableZoom() {
-        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(startZooming(_:)))
-        isUserInteractionEnabled = true
-        addGestureRecognizer(pinchGesture)
-    }
-
-    @objc
-    private func startZooming(_ sender: UIPinchGestureRecognizer) {
-        let scaleResult = sender.view?.transform.scaledBy(x: sender.scale, y: sender.scale)
-        guard let scale = scaleResult else { return }
-        sender.view?.transform = scale
-        sender.scale = 1
-    }
 }

@@ -24,10 +24,6 @@
                                     <action selector="catpure_button_action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FYq-v0-fpd"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uyj-zk-e55" userLabel="Capture image view">
-                                <rect key="frame" x="20" y="113" width="374" height="607"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -39,7 +35,6 @@
                     </view>
                     <connections>
                         <outlet property="capture_button" destination="M1i-M9-A8A" id="GMY-YV-LOH"/>
-                        <outlet property="captured_imageView" destination="uyj-zk-e55" id="u15-VV-yf1"/>
                         <outlet property="screen_view" destination="8bC-Xf-vdC" id="J7V-HR-7hY"/>
                     </connections>
                 </viewController>
